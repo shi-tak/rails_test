@@ -65,6 +65,12 @@ bin/rails -v
 bin/bundle exec rspec
 ```
 
+サンプルの実行
+
+```sh
+bin/rails runner tmp/target_sample.rb
+```
+
 ## 新しいバージョンを試すとき
 
 rails のバージョンを変更
@@ -119,4 +125,12 @@ test フォルダの削除
 
 ```sh
 rm -r test
+```
+
+config/application.rb に lib ディレクトリのロード設定
+
+```diff_ruby:config/application.rb
+class Application < Rails::Application
++   config.eager_load_paths << Rails.root.join("lib")
+end
 ```
