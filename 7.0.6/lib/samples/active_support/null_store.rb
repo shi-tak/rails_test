@@ -33,9 +33,9 @@ module Samples::ActiveSupport
       puts
 
       cache.with_local_cache do
+        cache.clear
+        cache.read_multi("name")
         begin
-          cache.clear
-          cache.read_multi("name")
           cache.read_multi("name")
         rescue Exception => e
           puts "raise: " + e.class.to_s
