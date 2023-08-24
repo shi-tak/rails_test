@@ -5,30 +5,24 @@ module Samples::ActiveSupport
     def self.execute
       puts "sample for v7.0.7"
       cache = ActiveSupport::Cache.lookup_store(:null_store)
-
-      puts
       puts "------"
+
       puts "Cache::NullStore doesn't store value."
       puts
-      name = "Taro"
-      cache.write("name", name)
+      cache.write("name", "Taro")
       result = cache.read("name")
-      puts "write: " + name.to_s
-      puts "read: " + result.to_s
-      
-      puts
+      puts "result = " + (result.nil? ? "nil" : result)
       puts "------"
+
       puts "Cache::NullStore store value inside block of #with_local_cache."
       puts
       cache.with_local_cache do
-        cache.write("name", name)
+        cache.write("name", "Taro")
         result = cache.read("name")
-        puts "write: " + name.to_s
-        puts "read: " + result.to_s
+        puts "result = " + result
       end
-
-      puts
       puts "------"
+      
       puts "Cache::NullStore raise NoMethodError when read empty value repeatdly inside block of #with_local_cache."
       puts
 
@@ -41,6 +35,7 @@ module Samples::ActiveSupport
           puts "raise: " + e.class.to_s
         end
       end
+      puts "------"
     end 
   end
 end
