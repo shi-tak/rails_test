@@ -103,7 +103,7 @@ Gemfile の rails のバージョンを指定
 
 Gemfile に rspec-rails を追加
 
-```diff_ruby:Gemfile
+```diff
 group :development, :test do
 +  gem 'rspec-rails', '~> 6.0.0'
 end
@@ -129,7 +129,7 @@ rm -r test
 
 config/application.rb に lib ディレクトリのロード設定
 
-```diff_ruby:config/application.rb
+```diff
 class Application < Rails::Application
 +   config.eager_load_paths << Rails.root.join("lib")
 end
