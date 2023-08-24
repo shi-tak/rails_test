@@ -68,7 +68,7 @@ bin/bundle exec rspec
 サンプルの実行
 
 ```sh
-bin/rails runner tmp/target_sample.rb
+bin/rails runner <lib/samples中のクラス>.execute
 ```
 
 ## 新しいバージョンを試すとき
