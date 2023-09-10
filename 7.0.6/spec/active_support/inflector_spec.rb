@@ -8,8 +8,8 @@ RSpec.describe "ActiveSupport::Inflector" do
       end
     end
     context "when argument is nil" do
-      it "return blank" do
-        expect(ActiveSupport::Inflector.humanize(nil)).to eq ""
+      it "raise NoMethodError" do
+        expect {ActiveSupport::Inflector.humanize(nil)}.to raise_error NoMethodError
       end
     end
   end
